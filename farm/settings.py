@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-83ch^01^26ooqkyj**gt8i@95n(e#vr318eu0!%$i8!l!(_mi+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["1ed820349c88.ngrok-free.app", "localhost", "127.0.0.1", "0.0.0.0"]
+ALLOWED_HOSTS = ["farm-backendd.onrender.com", "localhost", "127.0.0.1", "0.0.0.0"]
 
 
 # Application definition
@@ -137,6 +137,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://localhost:5173",
     "http://1ed820349c88.ngrok-free.app",
+    "https://farm-frontendd.vercel.app",
 ]
 
 REST_FRAMEWORK = {

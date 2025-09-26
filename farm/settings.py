@@ -44,9 +44,11 @@ INSTALLED_APPS = [
     "livestock",
     "djoser",
     "core",
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "corsheaders.middleware.CorsMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -139,7 +141,9 @@ CORS_ALLOWED_ORIGINS = [
     "http://1ed820349c88.ngrok-free.app",
     "https://farm-frontendd-678xo51db-temps-projects-69353272.vercel.app",
     "https://farm-frontendd.vercel.app",
+    "https://farm-frontendd-git-master-temps-projects-69353272.vercel.app",
 ]
+CORS_ALLOW_CREDENTIALS = True
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (

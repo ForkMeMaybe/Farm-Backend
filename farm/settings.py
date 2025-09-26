@@ -145,6 +145,7 @@ CORS_ALLOWED_ORIGINS = [
     "https://farm-frontendd-678xo51db-temps-projects-69353272.vercel.app",
     "https://farm-frontendd.vercel.app",
     "https://farm-frontendd-git-master-temps-projects-69353272.vercel.app",
+    "https://farm-frontend.onrender.com",
 ]
 
 # Enable credentials for JWT authentication
@@ -173,6 +174,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://farm-frontendd.vercel.app",
     "https://farm-frontendd-678xo51db-temps-projects-69353272.vercel.app",
     "https://farm-frontendd-git-master-temps-projects-69353272.vercel.app",
+    "https://farm-frontend.onrender.com",
 ]
 
 REST_FRAMEWORK = {

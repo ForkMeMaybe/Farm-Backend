@@ -12,6 +12,7 @@ djangorestframework-simplejwt = "*"
 psycopg2 = "*"
 google-generativeai = "*"
 openai = "*"
+gunicorn = "*"
 
 [dev-packages]
 

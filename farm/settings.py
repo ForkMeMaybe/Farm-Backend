@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     "livestock",
     "djoser",
     "core",
-    "corsheaders",
 ]
 
 MIDDLEWARE = [

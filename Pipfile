@@ -13,6 +13,7 @@ psycopg2 = "*"
 google-generativeai = "*"
 openai = "*"
 gunicorn = "*"
+dj-database-url = "*"
 
 [dev-packages]
 

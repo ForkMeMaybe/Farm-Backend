@@ -138,7 +138,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://1ed820349c88.ngrok-free.app",
     "https://farm-frontendd-678xo51db-temps-projects-69353272.vercel.app",
-    "https://farm-frontendd.vercel.app/",
+    "https://farm-frontendd.vercel.app",
 ]
 
 REST_FRAMEWORK = {

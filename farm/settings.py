@@ -141,7 +141,29 @@ CORS_ALLOWED_ORIGINS = [
     "https://farm-frontendd.vercel.app",
     "https://farm-frontendd-git-master-temps-projects-69353272.vercel.app",
 ]
-# CORS_ALLOW_CREDENTIALS = True
+
+# Enable credentials for JWT authentication
+CORS_ALLOW_CREDENTIALS = True
+
+# Allow all headers and methods for preflight requests
+CORS_ALLOW_ALL_HEADERS = True
+CORS_ALLOW_ALL_METHODS = True
+
+# Additional CORS settings for better compatibility
+CORS_PREFLIGHT_MAX_AGE = 86400  # 24 hours
+
+# Allow specific headers that might be needed for JWT authentication
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",

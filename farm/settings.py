@@ -141,7 +141,7 @@ DATABASES = {"default": dj_database_url.config()}
 #     "https://farm-frontendd.vercel.app",
 #     "https://farm-frontendd-git-master-temps-projects-69353272.vercel.app",
 # ]
-CORS_ALLOW_CREDENTIALS = True
+# CORS_ALLOW_CREDENTIALS = True
 
 # CSRF_TRUSTED_ORIGINS = [
 #     "http://localhost:3000",

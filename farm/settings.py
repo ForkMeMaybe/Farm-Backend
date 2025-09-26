@@ -151,20 +151,9 @@ CORS_ALLOWED_ORIGINS = [
 # Enable credentials for JWT authentication
 CORS_ALLOW_CREDENTIALS = True
 
-# Allow all headers and methods for preflight requests
-CORS_ALLOW_ALL_HEADERS = True
-CORS_ALLOW_ALL_METHODS = True
-
-# For debugging - allow all origins temporarily
-CORS_ALLOW_ALL_ORIGINS = True
-
-# Additional CORS settings for better compatibility
-CORS_PREFLIGHT_MAX_AGE = 86400  # 24 hours
 
 # Expose headers that the frontend needs to access
 CORS_EXPOSE_HEADERS = [
-    'Authorization',
-    'Content-Type',
     'X-CSRFToken',
 ]
 
@@ -176,6 +165,9 @@ CSRF_TRUSTED_ORIGINS = [
     "https://farm-frontendd-git-master-temps-projects-69353272.vercel.app",
     "https://farm-frontend.onrender.com",
 ]
+CSRF_COOKIE_SAMESITE = "None"
+CSRF_COOKIE_SECURE = True
+CSRF_USE_SESSIONS = False
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (

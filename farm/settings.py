@@ -57,6 +57,11 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
+# Disable CSRF for API endpoints (since we're using JWT)
+CSRF_COOKIE_SECURE = False
+CSRF_COOKIE_HTTPONLY = False
+CSRF_COOKIE_SAMESITE = 'None'
+
 ROOT_URLCONF = "farm.urls"
 
 
@@ -149,20 +154,17 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_ALL_HEADERS = True
 CORS_ALLOW_ALL_METHODS = True
 
+# For debugging - allow all origins temporarily
+CORS_ALLOW_ALL_ORIGINS = True
+
 # Additional CORS settings for better compatibility
 CORS_PREFLIGHT_MAX_AGE = 86400  # 24 hours
 
-# Allow specific headers that might be needed for JWT authentication
-CORS_ALLOW_HEADERS = [
-    'accept',
-    'accept-encoding',
-    'authorization',
-    'content-type',
-    'dnt',
-    'origin',
-    'user-agent',
-    'x-csrftoken',
-    'x-requested-with',
+# Expose headers that the frontend needs to access
+CORS_EXPOSE_HEADERS = [
+    'Authorization',
+    'Content-Type',
+    'X-CSRFToken',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
@@ -180,9 +182,12 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
-    "AUTH_HEADER_TYPES": ("JWT",),
+    "AUTH_HEADER_TYPES": ("JWT", "Bearer"),
     "ACCESS_TOKEN_LIFETIME": timedelta(days=2),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
+    "ROTATE_REFRESH_TOKENS": True,
+    "BLACKLIST_AFTER_ROTATION": True,
+    "UPDATE_LAST_LOGIN": True,
 }
 
 AUTH_USER_MODEL = "core.User"
@@ -200,5 +205,26 @@ DJOSER = {
         "user": "core.serializers.UserSerializer",
         "current_user": "core.serializers.UserSerializer",
         "user_create_password_retype": "core.serializers.UserCreateSerializer",
+    },
+}
+
+# Additional CORS debugging settings
+CORS_DEBUG = True
+CORS_ALLOW_PRIVATE_NETWORK = True
+
+# Logging configuration for debugging CORS issues
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'corsheaders': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        },
     },
 }
